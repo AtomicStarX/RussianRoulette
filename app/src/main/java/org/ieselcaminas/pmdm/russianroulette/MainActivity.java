@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button[] buttons = new Button[6];
     TextView textView;
     ImageView imageView;
+    Button buttonReload;
+    Boolean gameOver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,35 +24,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         randomButton = createRandomButton();
 
-        buttons[0] = findViewById(R.id.button1);
-        buttons[1] = findViewById(R.id.button2);
-        buttons[2] = findViewById(R.id.button3);
-        buttons[3] = findViewById(R.id.button4);
-        buttons[4] = findViewById(R.id.button5);
-        buttons[5] = findViewById(R.id.button6);
-
-        Button buttonReload = findViewById(R.id.buttonReload);
-
-        textView = findViewById(R.id.textView);
-        imageView = findViewById(R.id.imageViewBackground);
-
-        imageView.setBackgroundColor(getResources().getColor(R.color.backGroundColor));
-        textView.setVisibility(View.INVISIBLE);
-
-        for(Button button:buttons){
-            button.setEnabled(true);
-        }
-
+        initViews();
+        initGame();
 
         buttonReload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imageView.setBackgroundColor(getResources().getColor(R.color.backGroundColor));
-                textView.setVisibility(View.INVISIBLE);
-                for (Button button : buttons) {
-                    button.setEnabled(true);
-                }
-                createRandomButton();
+                initGame();
             }
         });
 
@@ -59,21 +39,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public Button createRandomButton() {
-        int n = (int) (Math.random() * 6);
-        randomButton = buttons[n];
-        return randomButton;
-    }
-
 
     @Override
     public void onClick(View v) {
         if (v.equals(randomButton)) {
             textView.setVisibility(View.VISIBLE);
             imageView.setBackgroundColor(getResources().getColor(R.color.newBackGroundColor));
+            gameOver = true;
+            v.setBackgroundColor(getResources().getColor(R.color.gameOverButtonColor));
         } else {
             v.setEnabled(false);
         }
+    }
+
+    //Init Views And Game
+    public void initGame() {
+        gameOver = false;
+        createRandomButton();
+        imageView.setBackgroundColor(getResources().getColor(R.color.backGroundColor));
+        textView.setVisibility(View.INVISIBLE);
+        for (Button button : buttons) {
+            button.setEnabled(true);
+        }
+    }
+
+    public void initViews() {
+        buttons[0] = findViewById(R.id.button1);
+        buttons[1] = findViewById(R.id.button2);
+        buttons[2] = findViewById(R.id.button3);
+        buttons[3] = findViewById(R.id.button4);
+        buttons[4] = findViewById(R.id.button5);
+        buttons[5] = findViewById(R.id.button6);
+
+        buttonReload = findViewById(R.id.buttonReload);
+        textView = findViewById(R.id.textView);
+        imageView = findViewById(R.id.imageViewBackground);
+
+    }
+
+    //Create Random Button
+    public Button createRandomButton() {
+        int n = (int) (Math.random() * 6);
+        randomButton = buttons[n];
+        return randomButton;
     }
 
 }

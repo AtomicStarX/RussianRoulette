@@ -2,62 +2,62 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="10dp"
-        android:layout_weight="1"
+        android:gravity="center"
         android:orientation="horizontal">
 
 
         <Button
             android:id="@+id/button1"
+            style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/button1" />
 
         <Button
             android:id="@+id/button2"
+            style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/button2" />
 
         <Button
             android:id="@+id/button3"
+            style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/button3" />
 
         <Button
             android:id="@+id/button4"
+            style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/button4" />
 
         <Button
             android:id="@+id/button5"
+            style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/button5" />
 
         <Button
             android:id="@+id/button6"
+            style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:text="@string/button6" />
     </LinearLayout>
 
@@ -67,7 +67,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_weight="1"
         android:text="@string/button_reload" />
 
     <FrameLayout
@@ -78,13 +77,12 @@
         <ImageView
             android:id="@+id/imageViewBackground"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srcCompat="@android:color/holo_blue_dark" />
+            android:layout_height="361dp" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="360dp"
             android:gravity="center"
             android:text="@string/textViewBang"
             android:textColor="@android:color/background_dark"
